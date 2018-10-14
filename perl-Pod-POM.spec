@@ -4,15 +4,15 @@
 #
 Name     : perl-Pod-POM
 Version  : 2.01
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
 Summary  : 'POD Object Model'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
-Requires: perl-Pod-POM-bin
-Requires: perl-Pod-POM-license
-Requires: perl-Pod-POM-man
+Requires: perl-Pod-POM-bin = %{version}-%{release}
+Requires: perl-Pod-POM-license = %{version}-%{release}
+Requires: perl-Pod-POM-man = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(File::Slurper)
 BuildRequires : perl(Test::Differences)
@@ -33,8 +33,8 @@ form or another.  The Template Toolkit Pod plugin interfaces to this module.
 %package bin
 Summary: bin components for the perl-Pod-POM package.
 Group: Binaries
-Requires: perl-Pod-POM-license
-Requires: perl-Pod-POM-man
+Requires: perl-Pod-POM-license = %{version}-%{release}
+Requires: perl-Pod-POM-man = %{version}-%{release}
 
 %description bin
 bin components for the perl-Pod-POM package.
@@ -43,8 +43,8 @@ bin components for the perl-Pod-POM package.
 %package dev
 Summary: dev components for the perl-Pod-POM package.
 Group: Development
-Requires: perl-Pod-POM-bin
-Provides: perl-Pod-POM-devel
+Requires: perl-Pod-POM-bin = %{version}-%{release}
+Provides: perl-Pod-POM-devel = %{version}-%{release}
 
 %description dev
 dev components for the perl-Pod-POM package.
@@ -91,12 +91,12 @@ make TEST_VERBOSE=1 test
 
 %install
 rm -rf %{buildroot}
-mkdir -p %{buildroot}/usr/share/doc/perl-Pod-POM
-cp LICENSE %{buildroot}/usr/share/doc/perl-Pod-POM/LICENSE
+mkdir -p %{buildroot}/usr/share/package-licenses/perl-Pod-POM
+cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Pod-POM/LICENSE
 if test -f Makefile.PL; then
-make pure_install PERL_INSTALL_ROOT=%{buildroot}
+make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
-./Build install --installdirs=site --destdir=%{buildroot}
+./Build install --installdirs=vendor --destdir=%{buildroot}
 fi
 find %{buildroot} -type f -name .packlist -exec rm -f {} ';'
 find %{buildroot} -depth -type d -exec rmdir {} 2>/dev/null ';'
@@ -105,29 +105,29 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Constants.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Begin.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Code.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Content.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/For.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Head1.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Head2.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Head3.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Head4.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Item.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Over.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Pod.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Sequence.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Text.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Node/Verbatim.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Nodes.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/Test.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/View.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/View/HTML.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/View/Pod.pm
-/usr/lib/perl5/site_perl/5.26.1/Pod/POM/View/Text.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Constants.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Begin.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Code.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Content.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/For.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Head1.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Head2.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Head3.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Head4.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Item.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Over.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Pod.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Sequence.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Text.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Node/Verbatim.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Nodes.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/Test.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/View.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/View/HTML.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/View/Pod.pm
+/usr/lib/perl5/vendor_perl/5.26.1/Pod/POM/View/Text.pm
 
 %files bin
 %defattr(-,root,root,-)
@@ -161,11 +161,11 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 /usr/share/man/man3/Pod::POM::View::Text.3
 
 %files license
-%defattr(-,root,root,-)
-/usr/share/doc/perl-Pod-POM/LICENSE
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/perl-Pod-POM/LICENSE
 
 %files man
-%defattr(-,root,root,-)
+%defattr(0644,root,root,0755)
 /usr/share/man/man1/podlint.1
 /usr/share/man/man1/pom2.1
 /usr/share/man/man1/pomdump.1
