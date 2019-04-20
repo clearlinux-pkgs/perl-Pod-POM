@@ -4,10 +4,10 @@
 #
 Name     : perl-Pod-POM
 Version  : 2.01
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
-Summary  : 'POD Object Model'
+Summary  : POD Object Model
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Pod-POM-bin = %{version}-%{release}
@@ -34,7 +34,6 @@ form or another.  The Template Toolkit Pod plugin interfaces to this module.
 Summary: bin components for the perl-Pod-POM package.
 Group: Binaries
 Requires: perl-Pod-POM-license = %{version}-%{release}
-Requires: perl-Pod-POM-man = %{version}-%{release}
 
 %description bin
 bin components for the perl-Pod-POM package.
@@ -45,6 +44,7 @@ Summary: dev components for the perl-Pod-POM package.
 Group: Development
 Requires: perl-Pod-POM-bin = %{version}-%{release}
 Provides: perl-Pod-POM-devel = %{version}-%{release}
+Requires: perl-Pod-POM = %{version}-%{release}
 
 %description dev
 dev components for the perl-Pod-POM package.
