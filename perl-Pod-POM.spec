@@ -4,15 +4,16 @@
 #
 Name     : perl-Pod-POM
 Version  : 2.01
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
-Summary  : POD Object Model
+Summary  : 'POD Object Model'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Pod-POM-bin = %{version}-%{release}
 Requires: perl-Pod-POM-license = %{version}-%{release}
 Requires: perl-Pod-POM-man = %{version}-%{release}
+Requires: perl-Pod-POM-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : perl(File::Slurper)
 BuildRequires : perl(Test::Differences)
@@ -66,14 +67,24 @@ Group: Default
 man components for the perl-Pod-POM package.
 
 
+%package perl
+Summary: perl components for the perl-Pod-POM package.
+Group: Default
+Requires: perl-Pod-POM = %{version}-%{release}
+
+%description perl
+perl components for the perl-Pod-POM package.
+
+
 %prep
 %setup -q -n Pod-POM-2.01
+cd %{_builddir}/Pod-POM-2.01
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -83,7 +94,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -92,7 +103,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Pod-POM
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Pod-POM/LICENSE
+cp %{_builddir}/Pod-POM-2.01/LICENSE %{buildroot}/usr/share/package-licenses/perl-Pod-POM/40a2bdcb8769144c79b6f28be3ed041fc69a61ef
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -105,29 +116,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Constants.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Begin.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Code.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Content.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/For.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Head1.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Head2.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Head3.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Head4.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Item.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Over.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Pod.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Sequence.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Text.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Node/Verbatim.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Nodes.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/Test.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/View.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/View/HTML.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/View/Pod.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Pod/POM/View/Text.pm
 
 %files bin
 %defattr(-,root,root,-)
@@ -162,10 +150,36 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Pod-POM/LICENSE
+/usr/share/package-licenses/perl-Pod-POM/40a2bdcb8769144c79b6f28be3ed041fc69a61ef
 
 %files man
 %defattr(0644,root,root,0755)
 /usr/share/man/man1/podlint.1
 /usr/share/man/man1/pom2.1
 /usr/share/man/man1/pomdump.1
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Constants.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Begin.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Code.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Content.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/For.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Head1.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Head2.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Head3.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Head4.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Item.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Over.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Pod.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Sequence.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Text.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Node/Verbatim.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Nodes.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/Test.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/View.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/View/HTML.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/View/Pod.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Pod/POM/View/Text.pm
