@@ -4,7 +4,7 @@
 #
 Name     : perl-Pod-POM
 Version  : 2.01
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
 Summary  : 'POD Object Model'
@@ -160,26 +160,26 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Constants.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Begin.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Code.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Content.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/For.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Head1.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Head2.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Head3.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Head4.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Item.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Over.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Pod.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Sequence.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Text.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Node/Verbatim.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Nodes.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/Test.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/View.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/View/HTML.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/View/Pod.pm
-/usr/lib/perl5/vendor_perl/5.30.3/Pod/POM/View/Text.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Constants.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Begin.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Code.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Content.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/For.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Head1.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Head2.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Head3.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Head4.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Item.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Over.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Pod.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Sequence.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Text.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Node/Verbatim.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Nodes.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/Test.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/View.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/View/HTML.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/View/Pod.pm
+/usr/lib/perl5/vendor_perl/5.32.1/Pod/POM/View/Text.pm
