@@ -7,7 +7,7 @@
 #
 Name     : perl-Pod-POM
 Version  : 2.01
-Release  : 27
+Release  : 28
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Pod-POM-2.01.tar.gz
 Summary  : 'POD Object Model'
